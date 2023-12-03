@@ -1,0 +1,94 @@
+<div class="main-container">
+  <div class="content-search">
+
+    <div class="content-input">
+      <input  type="text" class="form-control w-100" [(ngModel)]="search" placeholder="buscar" (keyup)="handleSearch()" />
+    </div>
+    <a
+      routerLink="/products/save"
+      class="yellow-button"
+    >
+      Agregar
+    </a>
+
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="content-table">
+        
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Logo</th>
+                <th>Nombre del producto</th>
+                <th>Descripción</th>
+                <th>Fecha de liberación</th>
+                <th>Fecha de restructuración</th>
+                <th>
+                  Acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productsToDisplay">
+                <td>
+
+                  <app-avatar [url]="product.logo"></app-avatar>
+                </td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
+                <td>
+                  <div class="content-icon">
+                    <a
+                      [routerLink]="'/products/save/'+ product.id" 
+                      class="yellow-button"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <button class="yellow-button" (click)="onDelete(product)" >
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="content-paginator">
+        <div>
+          <app-pagination
+            [current]="current"
+            [total]="total"
+            (goTo)="onGoTo($event)"
+            (next)="onNext($event)"
+            (previous)="onPrevious($event)"
+          ></app-pagination>
+        </div>
+        <div class="content-input">
+          <select 
+            class="form-control" 
+            [(ngModel)]="perPage"
+            (change)="changePerPage()"
+          >
+            <option [value]="opt" *ngFor="let opt of optionsSelect" >{{ opt }}</option>
+          </select> 
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div *ngIf="modalOpen === true">
+    <app-modal 
+      [title]="titleModal"
+      (onCancel)="cancelModal()"
+      (onConfirm)="deleteProduct()"
+    ></app-modal>
+  </div>
+</div>
+
+

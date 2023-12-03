@@ -1,0 +1,166 @@
+<div class="main-container">
+  <div class="product-save">
+
+    <div class="card">
+      <div class="card-header">
+        <h3 class="title">Formulario de Registro</h3>
+      </div>
+      <div class="card-body">
+
+        <form   
+         [formGroup]="productForm"
+        >
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="form-group">
+                <label>Id</label>
+                <input class="form-control" formControlName="id" 
+                  [ngClass]="{ invalid: productForm.get('id')?.invalid && productForm.get('id')?.errors && (productForm.get('id')?.dirty || productForm.get('id')?.touched) }"
+                />
+                <div *ngIf="productForm.get('id')?.invalid && productForm.get('id')?.errors && (productForm.get('id')?.dirty || productForm.get('id')?.touched)">
+                  <small class="text-danger"
+                    *ngIf="productForm.get('id')?.hasError('required')">
+                    Este campo es requerido.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('id')?.hasError('minlength')">
+                    La longitud mínima es de 3 caracteres.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('id')?.hasError('maxlength')">
+                    La longitud máxima es de 10 caracteres.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('id')?.hasError('idAlreadyExists')">
+                    Id no valido
+                  </small>
+                </div>
+              </div>
+              
+            </div>
+            <div class="form-col">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input class="form-control" formControlName="name" 
+                  [ngClass]="{ invalid: productForm.get('name')?.invalid && productForm.get('name')?.errors && (productForm.get('name')?.dirty || productForm.get('name')?.touched) }"
+                />
+                <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.errors && (productForm.get('name')?.dirty || productForm.get('name')?.touched)">
+                  <small class="text-danger"
+                    *ngIf="productForm.get('name')?.hasError('required')">
+                    Este campo es requerido.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('name')?.hasError('minlength')">
+                    La longitud mínima es de 5 caracteres.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('name')?.hasError('maxlength')">
+                    La longitud máxima es de 100 caracteres.
+                  </small>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="form-group">
+                <label>Descripción</label>
+                <input class="form-control" formControlName="description" 
+                  [ngClass]="{ invalid: productForm.get('description')?.invalid && productForm.get('description')?.errors && (productForm.get('description')?.dirty || productForm.get('description')?.touched) }"
+                />
+                <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.errors && (productForm.get('description')?.dirty || productForm.get('description')?.touched)">
+                  <small class="text-danger"
+                    *ngIf="productForm.get('description')?.hasError('required')">
+                    Este campo es requerido.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('description')?.hasError('minlength')">
+                    La longitud mínima es de 10 caracteres.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('description')?.hasError('maxlength')">
+                    La longitud máxima es de 200 caracteres.
+                  </small>
+                </div>
+              </div>
+              
+            </div>
+            <div class="form-col">
+              <div class="form-group">
+                <label>Logo</label>
+                <input class="form-control" formControlName="logo" 
+                  [ngClass]="{ invalid: productForm.get('logo')?.invalid && productForm.get('logo')?.errors && (productForm.get('logo')?.dirty || productForm.get('logo')?.touched) }"
+                />
+                <div *ngIf="productForm.get('logo')?.invalid && productForm.get('logo')?.errors && (productForm.get('logo')?.dirty || productForm.get('logo')?.touched)">
+                  <small class="text-danger"
+                    *ngIf="productForm.get('logo')?.hasError('required')">
+                    Este campo es requerido..
+                  </small>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="form-group">
+                <label>Fecha de liberación</label>
+                <input class="form-control" type="date" formControlName="date_release"
+                [ngClass]="{ invalid: productForm.get('date_release')?.invalid && productForm.get('date_release')?.errors && (productForm.get('date_release')?.dirty || productForm.get('date_release')?.touched) }"
+                />
+                <div *ngIf="productForm.get('date_release')?.invalid && productForm.get('date_release')?.errors && (productForm.get('date_release')?.dirty || productForm.get('date_release')?.touched)">
+                  <small class="text-danger"
+                    *ngIf="productForm.get('date_release')?.hasError('required')">
+                    Este campo es requerido.
+                  </small>
+                </div>
+              </div>
+              
+            </div>
+            <div class="form-col">
+              <div class="form-group">
+                <label>Fecha de restructuración</label>
+                <input class="form-control" type="date" formControlName="date_revision" 
+                  [ngClass]="{ invalid: productForm.get('date_revision')?.invalid && productForm.get('date_revision')?.errors && (productForm.get('date_revision')?.dirty || productForm.get('date_revision')?.touched) }"
+                />
+                <div *ngIf="productForm.get('date_revision')?.invalid && productForm.get('date_revision')?.errors && (productForm.get('date_revision')?.dirty || productForm.get('date_revision')?.touched)">
+                  <small class="text-danger"
+                    *ngIf="productForm.get('date_revision')?.hasError('required')">
+                    Este campo es requerido.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="productForm.get('date_revision')?.hasError('hasNotPasedOneYear')">
+                    La fecha de revisión debe ser 1 año mayor a la fecha de liberación
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-butons">
+            <button
+              class="grey-button"
+              (click)="resetForm()"
+            >
+              Reiniciar
+            </button>
+            <button
+              class="yellow-button"
+              type="button"
+              [disabled]="!productForm.valid"
+              (click)="handleSubmit()"
+            >
+              Enviar
+            </button>
+          </div>
+
+        </form> 
+        
+      </div>
+    </div>
+  </div>
+</div> 

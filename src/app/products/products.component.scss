@@ -1,0 +1,38 @@
+.content-search{
+    width: 100%;
+    display: flex;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .content-input{
+        width: 300px; 
+        @media (max-width: 768px) {
+            width: 230px;
+        }
+    }
+
+}
+
+.content-paginator{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+    }
+
+    .content-input{
+        width: 100px; 
+    }
+
+}
+
+.content-icon{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
