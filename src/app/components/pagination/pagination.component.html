@@ -6,6 +6,7 @@
         [attr.aria-disabled]="current === 1"
         [disabled]="current === 1"
         (click)="onPrevious()"
+        data-test="btnPrev"
       >
         Previous
       </button>
@@ -20,9 +21,10 @@
         tabindex="0"
         (click)="onGoTo(page)"
         (keyup.enter)="onGoTo(page)"
-        >
-{{ page }}</a
+        data-test="btnPaginador"
       >
+        {{ page }}
+      </a>
     </li>
     <li>
       <button
@@ -30,6 +32,7 @@
         [attr.aria-disabled]="current === total"
         [disabled]="current === total"
         (click)="onNext()"
+        data-test="btnNext"
       >
         Next
       </button>

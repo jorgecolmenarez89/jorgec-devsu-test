@@ -4,7 +4,6 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors,
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { IdValidator } from '../validators/id.validator';
-import { IProduct } from '../product';
 
 @Component({
   selector: 'app-products-save',
